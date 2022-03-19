@@ -2,5 +2,5 @@
 projekt na zaliczenie przedmiotu "Algorytmy i struktury danych"
 
 
-Wstęp Teoretyczny
+# Wstęp Teoretyczny
 
