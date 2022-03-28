@@ -44,6 +44,8 @@ Okazuje się że nie, a więc dodajemy jego sąsiadów do kolejki i kontynuujemy
 ![image](https://user-images.githubusercontent.com/36795978/159134662-571734fb-4d03-4e5b-93cd-e3240ba3062c.png)
 
 
+## Jak wyglada reprezentacja grafu w komputerze
+
 
 
 
