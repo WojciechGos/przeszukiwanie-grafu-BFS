@@ -36,6 +36,9 @@
 		2E2BAA5A27E748AA005C87B7 /* liballegro_font.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E2BAA4127E748A9005C87B7 /* liballegro_font.5.2.7.dylib */; };
 		2E2BAA5B27E748AA005C87B7 /* liballegro_font.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 2E2BAA4127E748A9005C87B7 /* liballegro_font.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2E2BAA5F27E748FA005C87B7 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E2BAA5E27E748FA005C87B7 /* main.c */; };
+		2E5DAE4927F44232001D5E75 /* List.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E5DAE4827F44232001D5E75 /* List.c */; };
+		2E5DAE4C27F44323001D5E75 /* Queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E5DAE4B27F44323001D5E75 /* Queue.c */; };
+		2E5DAE4F27F44347001D5E75 /* Graph.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E5DAE4E27F44347001D5E75 /* Graph.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,9 +85,14 @@
 		2E2BAA3F27E748A9005C87B7 /* liballegro_color.5.2.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_color.5.2.7.dylib; path = "../allegroTest2/allegroTest2/Supporting Files/liballegro_color.5.2.7.dylib"; sourceTree = "<group>"; };
 		2E2BAA4027E748A9005C87B7 /* liballegro_memfile.5.2.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_memfile.5.2.7.dylib; path = "../allegroTest2/allegroTest2/Supporting Files/liballegro_memfile.5.2.7.dylib"; sourceTree = "<group>"; };
 		2E2BAA4127E748A9005C87B7 /* liballegro_font.5.2.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_font.5.2.7.dylib; path = "../allegroTest2/allegroTest2/Supporting Files/liballegro_font.5.2.7.dylib"; sourceTree = "<group>"; };
-		2E2BAA5D27E748FA005C87B7 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		2E2BAA5E27E748FA005C87B7 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		2E2BAA6A27E75A91005C87B7 /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = arial.ttf; path = ../../../../Downloads/arial/arial.ttf; sourceTree = "<group>"; };
+		2E5DAE4727F44232001D5E75 /* List.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		2E5DAE4827F44232001D5E75 /* List.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = List.c; sourceTree = "<group>"; };
+		2E5DAE4A27F44323001D5E75 /* Queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		2E5DAE4B27F44323001D5E75 /* Queue.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Queue.c; sourceTree = "<group>"; };
+		2E5DAE4D27F44347001D5E75 /* Graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graph.h; sourceTree = "<group>"; };
+		2E5DAE4E27F44347001D5E75 /* Graph.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Graph.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,11 +139,11 @@
 		2E2BAA2027E747B6005C87B7 /* Przeszukiwanie Grafu metoda BFS */ = {
 			isa = PBXGroup;
 			children = (
+				2E5DAE4627F44211001D5E75 /* Data_structures */,
 				2E2BAA6A27E75A91005C87B7 /* arial.ttf */,
 				2E2BAA2727E747B8005C87B7 /* Assets.xcassets */,
 				2E2BAA2927E747B8005C87B7 /* Main.storyboard */,
 				2E2BAA2E27E747B8005C87B7 /* Przeszukiwanie_Grafu_metoda_BFS.entitlements */,
-				2E2BAA5D27E748FA005C87B7 /* main.h */,
 				2E2BAA5E27E748FA005C87B7 /* main.c */,
 			);
 			path = "Przeszukiwanie Grafu metoda BFS";
@@ -159,6 +167,19 @@
 				2E2BAA3727E748A9005C87B7 /* liballegro.5.2.7.dylib */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E5DAE4627F44211001D5E75 /* Data_structures */ = {
+			isa = PBXGroup;
+			children = (
+				2E5DAE4727F44232001D5E75 /* List.h */,
+				2E5DAE4827F44232001D5E75 /* List.c */,
+				2E5DAE4A27F44323001D5E75 /* Queue.h */,
+				2E5DAE4B27F44323001D5E75 /* Queue.c */,
+				2E5DAE4D27F44347001D5E75 /* Graph.h */,
+				2E5DAE4E27F44347001D5E75 /* Graph.c */,
+			);
+			path = Data_structures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +252,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E5DAE4C27F44323001D5E75 /* Queue.c in Sources */,
 				2E2BAA5F27E748FA005C87B7 /* main.c in Sources */,
+				2E5DAE4F27F44347001D5E75 /* Graph.c in Sources */,
+				2E5DAE4927F44232001D5E75 /* List.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
