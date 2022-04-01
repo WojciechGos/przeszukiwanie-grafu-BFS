@@ -30,6 +30,7 @@ void add(List * list, int data)
         list->start = new_node;
         list->end = new_node;
         new_node->data = data;
+        new_node->next = NULL;
         return;
     }
     if(new_node != NULL){
@@ -112,16 +113,17 @@ void remove_list(List * list){
 /// Wyświetla zawartość podanej listy przez parametr
 void print_list(List * list){
     List_pointer * ptr = list->start;
+    
     if(ptr == NULL){
         puts("List is Empty!");
         return;
     }
 
-    while(ptr->next != NULL){
+    while(ptr != NULL){
         printf("%d ", ptr->data);
         ptr = ptr->next;
     }
-    printf("%d ", ptr->data);
+
     puts("");
 }
 
@@ -135,7 +137,7 @@ int at(List *list, int index){
     if(ptr == NULL)
         return -1;
     int i =0;
-    while (ptr != NULL && i<index){
+    while (ptr->next != NULL && i<index){
         ptr = ptr->next;
         i++;
     }
@@ -145,10 +147,7 @@ int at(List *list, int index){
 /// Funkcja ta zwraca ilość elementów w liście
 int list_size(List * list){
     int counter = 0;
-    printf("addres: %p\n", list);
-    printf("///////////\n");
-    printf("addres: %p", list->start);
-    if(list->start == NULL)
+    if(list == NULL)
         return 0;
     List_pointer * ptr = list->start;
     while(ptr != NULL){
@@ -164,7 +163,7 @@ void set_value_at(List * list, int index, int value){
     if(ptr == NULL)
         return;
     
-    while(ptr != NULL && counter <= index){
+    while(ptr->next != NULL && counter < index){
         counter++;
         ptr = ptr->next;
     }

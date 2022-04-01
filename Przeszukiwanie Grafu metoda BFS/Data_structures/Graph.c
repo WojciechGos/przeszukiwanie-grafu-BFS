@@ -73,20 +73,27 @@ void BFS(Graph * graph, int start, int vertices){
     Queue queue = {NULL, NULL};
     
     fill_list(&visited, vertices);
+
     set_value_at(&visited, start, 1);
     push(&queue, start);
-    
+
     while(!is_queue_empty(&queue)){
         
         currentProcesedList = get_vertice(graph, get_front_element(&queue));
+        printf("q: %d\n", get_front_element(&queue));
         pop(&queue);
+//        puts("visited");
+//        print_list(&visited);
         
         size = list_size(currentProcesedList);
         
         for(int i=0; i<size; ++i){
             vertice = at(currentProcesedList, i);
-            if(at(currentProcesedList, vertice) == 0){
+//            printf("vertice: in for: %d\n", vertice);
+
+            if(at(&visited, vertice) == 0){
                 set_value_at(&visited, vertice, 1);
+                push(&queue, vertice);
             }
         }
     }

@@ -17,16 +17,17 @@
 
 int main(int argv, char **argc){
     
-
-    Graph * graph = create_graph(4);
+    int vertices = 5;
+    Graph * graph = create_graph(vertices);
     
     add_undirected_edge(graph, 0, 3);
     add_undirected_edge(graph, 0, 1);
     add_undirected_edge(graph, 1, 2);
+    add_undirected_edge(graph, 4, 2);
     
-    print_graph_adjacent_vertices(graph, 4);
+    print_graph_adjacent_vertices(graph, vertices);
     
-    BFS(graph, 4, 0);
+    BFS(graph, 0, vertices);
     
 //    ALLEGRO_DISPLAY * display;
 //    al_init();
