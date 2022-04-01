@@ -1,8 +1,16 @@
 #include "Graph.h"
 #include <stdlib.h>
 #include "List.h"
+#include "Queue.h"
 
-Graph * createGraph(int vertices){
+/// funckcja alokuje w pamięci graf
+/// @param vertices - przyjmuje ilość wierzchowłków jakie ma zaalokować
+/// ### Jak korzystać
+///   ~~~~~~~~~~~~~~~~~~~.c
+///   Graph * graph = create_graph(vertices);
+///   ~~~~~~~~~~~~~~~~~~~
+///  @return zwraca wskaźnik na komórkę pamięci grafu
+Graph * create_graph(int vertices){
     Graph * graph = (Graph*)(malloc(sizeof(Graph)));
 
     graph->vertices = (malloc(sizeof(List*)*vertices));
@@ -19,26 +27,26 @@ Graph * createGraph(int vertices){
     return graph;
 }
 
+/// Funkcja ta zwraca wskaźnik na liste sąsiedztwa danego wierzchołka
+///
+/// Jest skróceniem zapisu
+/// ~~~~~~~~.c
+/// graph->vertices[root];
+/// ~~~~~~~~
 List * get_vertice(Graph * graph, int root){
     return graph->vertices[root];
 }
 
+/// Funckja ta dodaje krawędź nie skierowaną do grafu z wierzchołka a do wierzchołka b
+/// @warning funkcja alokuje dokładnie tyle wierzchołków ile jest podane w funkcji create_graph, przy czym pierwszy element ma index 0 a ostatni vertices-1
 void add_undirected_edge(Graph* graph, int a, int b){
-
-    puts("1");
     List * verticeA = get_vertice(graph, a);
-    printf("list a: %p", &verticeA);
-    puts("2");
     List * verticeB = get_vertice(graph, b);
-    printf("list b: %p", &verticeB);
-
-    puts("3");
+    
     add(verticeA, b);
-    puts("4");
     add(verticeB, a);
-    puts("5");
 }
-
+/// wyświetla listę sąsiedztwa każdego wierzchołka w konsoli
 void print_graph_adjacent_vertices(Graph* graph, int vertices){
     List * tmpVertice;
     for(int i=0; i<vertices; ++i){
@@ -46,5 +54,40 @@ void print_graph_adjacent_vertices(Graph* graph, int vertices){
         printf("root: %d ", i);
         printf("adjacent: ");
         print_list(tmpVertice);
+    }
+}
+
+void fill_list(List * list, int vertices){
+    for(int i=0; i<vertices; ++i){
+        add(list, 0);
+    }
+    
+}
+
+
+
+void BFS(Graph * graph, int start, int vertices){
+    ///lista ta przetrzymuje informacje czy dany wierzchołek został odwiedzony czy nie
+    List visited = {NULL, NULL}, *currentProcesedList = NULL;
+    int size = 0, vertice = -1;
+    Queue queue = {NULL, NULL};
+    
+    fill_list(&visited, vertices);
+    set_value_at(&visited, start, 1);
+    push(&queue, start);
+    
+    while(!is_queue_empty(&queue)){
+        
+        currentProcesedList = get_vertice(graph, get_front_element(&queue));
+        pop(&queue);
+        
+        size = list_size(currentProcesedList);
+        
+        for(int i=0; i<size; ++i){
+            vertice = at(currentProcesedList, i);
+            if(at(currentProcesedList, vertice) == 0){
+                set_value_at(&visited, vertice, 1);
+            }
+        }
     }
 }

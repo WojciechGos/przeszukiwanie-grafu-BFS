@@ -3,13 +3,25 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-
-
+/// Właściwa struktura lsty jednokierunkowej
+///
+///Przechowuje informacje o danych oraz wkaźniki na następne elementy
 typedef struct List_pointer{
     int data;
     struct List_pointer *next;
 } List_pointer;
 
+/// List jednokierunkowa
+///
+/// Wskazuje na początek oraz koniec właściwej struktury listy.
+///
+/// ### Jak wywołać
+///
+///  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.c
+///    List list = {NULL, NULL};
+///  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+///
+/// @warning Istnieje również funkcja createList() której nie należy używać jeśli nie zależy ci na wielokrotnym alokowaniu pamięci (tak jak ma to miejsce przy tworzeniu listy sąsiedztwa grafu).
 typedef struct List
 {
     List_pointer *start, *end;
@@ -22,5 +34,7 @@ void print_list(List *list);
 bool is_list_empty(List *list);
 int at(List * list, int n);
 List *createList();
+int list_size(List * list);
+void set_value_at(List * list, int index, int value);
 
 #endif

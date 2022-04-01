@@ -12,12 +12,21 @@
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_native_dialog.h>
 #include "Data_structures/List.h"
+#include "Data_structures/Queue.h"
+#include "Data_structures/Graph.h"
 
 int main(int argv, char **argc){
     
-    List list = {NULL, NULL};
+
+    Graph * graph = create_graph(4);
     
-    printf("%p", &list);
+    add_undirected_edge(graph, 0, 3);
+    add_undirected_edge(graph, 0, 1);
+    add_undirected_edge(graph, 1, 2);
+    
+    print_graph_adjacent_vertices(graph, 4);
+    
+    BFS(graph, 4, 0);
     
 //    ALLEGRO_DISPLAY * display;
 //    al_init();
