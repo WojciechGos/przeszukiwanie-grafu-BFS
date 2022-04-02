@@ -40,6 +40,7 @@
 		2E5DAE4F27F44347001D5E75 /* Graph.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E5DAE4E27F44347001D5E75 /* Graph.c */; };
 		2E8555A727F85E190000D919 /* CONSOLA.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 2E8555A627F85E190000D919 /* CONSOLA.TTF */; };
 		2E8555A927F85FF80000D919 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E8555A827F85FF80000D919 /* main.c */; };
+		2E8555AC27F881F10000D919 /* Interface.c in Sources */ = {isa = PBXBuildFile; fileRef = 2E8555AB27F881F10000D919 /* Interface.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +95,8 @@
 		2E5DAE4E27F44347001D5E75 /* Graph.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Graph.c; sourceTree = "<group>"; };
 		2E8555A627F85E190000D919 /* CONSOLA.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = CONSOLA.TTF; sourceTree = "<group>"; };
 		2E8555A827F85FF80000D919 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		2E8555AA27F881F10000D919 /* Interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interface.h; sourceTree = "<group>"; };
+		2E8555AB27F881F10000D919 /* Interface.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Interface.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 				2E2BAA2927E747B8005C87B7 /* Main.storyboard */,
 				2E2BAA2E27E747B8005C87B7 /* Przeszukiwanie_Grafu_metoda_BFS.entitlements */,
 				2E8555A827F85FF80000D919 /* main.c */,
+				2E8555AA27F881F10000D919 /* Interface.h */,
+				2E8555AB27F881F10000D919 /* Interface.c */,
 			);
 			path = "Przeszukiwanie Grafu metoda BFS";
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8555AC27F881F10000D919 /* Interface.c in Sources */,
 				2E8555A927F85FF80000D919 /* main.c in Sources */,
 				2E5DAE4C27F44323001D5E75 /* Queue.c in Sources */,
 				2E5DAE4F27F44347001D5E75 /* Graph.c in Sources */,
