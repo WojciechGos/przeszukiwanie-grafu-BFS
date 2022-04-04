@@ -3,6 +3,8 @@
 #include "List.h"
 #include "Queue.h"
 
+#define VERTICES 35
+
 /// funckcja alokuje w pamięci graf
 /// @param vertices - przyjmuje ilość wierzchowłków jakie ma zaalokować
 /// ### Jak korzystać
@@ -15,13 +17,8 @@ Graph * create_graph(int vertices){
 
     graph->vertices = (malloc(sizeof(List*)*vertices));
 
-
     for(int i=0; i<vertices; ++i){
-
-
         graph->vertices[i] = createList();
-
-        printf("%p\n" , graph->vertices[i]);
     }
 
     return graph;
@@ -80,7 +77,6 @@ void BFS(Graph * graph, int start, int vertices){
     while(!is_queue_empty(&queue)){
         
         currentProcesedList = get_vertice(graph, get_front_element(&queue));
-        printf("q: %d\n", get_front_element(&queue));
         pop(&queue);
 //        puts("visited");
 //        print_list(&visited);
@@ -97,4 +93,26 @@ void BFS(Graph * graph, int start, int vertices){
             }
         }
     }
+}
+
+Graph * generate_graph(int edges){
+
+    Graph * graph = create_graph(VERTICES);
+    
+    add_undirected_edge(graph, 0, 1);
+    add_undirected_edge(graph, 1, 2);
+    add_undirected_edge(graph, 1, 8);
+    add_undirected_edge(graph, 1, 7);
+    add_undirected_edge(graph, 2, 3);
+    add_undirected_edge(graph, 0, 8);
+    add_undirected_edge(graph, 9, 17);
+    add_undirected_edge(graph, 33, 34);
+    add_undirected_edge(graph, 27, 34);
+    add_undirected_edge(graph, 26, 32);
+    add_undirected_edge(graph, 5, 13);
+    add_undirected_edge(graph, 5, 6);
+    
+    
+    
+    return graph;
 }
