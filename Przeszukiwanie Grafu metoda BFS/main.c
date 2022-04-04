@@ -42,9 +42,6 @@ int main(int argv, char **argc){
     al_install_keyboard();
     al_init_primitives_addon();
     
-    ALLEGRO_FONT * font_small = al_load_font("CONSOLA.TTF", 32, 0);
-    ALLEGRO_FONT * font_medium = al_load_font("CONSOLA.TTF", 40, 0);
-    ALLEGRO_FONT * font_big = al_load_font("CONSOLA.TTF", 80, 0);
    
 
     ALLEGRO_EVENT_QUEUE *event_queue = al_create_event_queue();
@@ -55,8 +52,8 @@ int main(int argv, char **argc){
     int amount_of_edges = 50;  // maks to 101 krawędzi
     int start=0, tempo=0;
     
-    draw_board(graph, font_small);
-    draw_menu(amount_of_edges, start, tempo, 0, font_medium, font_big);
+    draw_board(graph);
+    draw_menu(amount_of_edges, start, tempo, 0);
     al_flip_display();
 
     while(!done){
@@ -66,7 +63,7 @@ int main(int argv, char **argc){
         if(events.type == ALLEGRO_EVENT_KEY_CHAR){
             switch(events.keyboard.keycode){
                 case ALLEGRO_KEY_RIGHT:
-                    if(amount_of_edges < 101){
+                    if(amount_of_edges < 212){
                         amount_of_edges++;
                     }
                     break;
@@ -80,8 +77,8 @@ int main(int argv, char **argc){
         // dodaj przycisk rozpoczynający ENTER
         // dodaj przyciski umożliwiające zwolnienie lub przyśpieszenie przeszukiwania
         printf("amount_of_edges %d \n", amount_of_edges);
-        draw_board(graph, font_small);
-        draw_menu(amount_of_edges, start, tempo, 0, font_medium, font_big);
+        draw_board(graph);
+        draw_menu(amount_of_edges, start, tempo, 0);
         al_flip_display();
 
     }

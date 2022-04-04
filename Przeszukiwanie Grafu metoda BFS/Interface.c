@@ -196,15 +196,20 @@ void draw_code_board(ALLEGRO_FONT * font){
 }
 
 ///  tworzy plansze z podziałem na plansze: grafu, kolejki oraz kodu
-void draw_board(Graph * graph, ALLEGRO_FONT * font){
+void draw_board(Graph * graph){
+    ALLEGRO_FONT * font = al_load_font("CONSOLA.TTF", 32, 0);
     al_clear_to_color(COLOR_LIGHT_GRAY);
     draw_graph_board(graph, font);
     draw_code_board(font);
+    
+    free(font);
 }
 
 
-void draw_menu(int edges, int start, int tempo, int selected, ALLEGRO_FONT * font_medium, ALLEGRO_FONT * font_big){
+void draw_menu(int edges, int start, int tempo, int selected){
     
+    ALLEGRO_FONT * font = al_load_font("CONSOLA.TTF", 40, 0);
+    ALLEGRO_FONT * font_big = al_load_font("CONSOLA.TTF", 80, 0);
     
     int x1 = get_real_position_on_board(7);
     int y1 = 50;
@@ -228,15 +233,18 @@ void draw_menu(int edges, int start, int tempo, int selected, ALLEGRO_FONT * fon
     int tx = get_real_position_on_board(7);
     int ty = 60;
     
-    al_draw_text(font_medium, COLOR_BLACK, tx, ty, 0, "ILOŚĆ");
-    al_draw_text(font_medium, COLOR_BLACK, tx, ty+50, 0, "KRAWĘDZI");
+    al_draw_text(font, COLOR_BLACK, tx, ty, 0, "ILOŚĆ");
+    al_draw_text(font, COLOR_BLACK, tx, ty+50, 0, "KRAWĘDZI");
     al_draw_text(font_big, COLOR_BLACK, tx, ty+100, 0, convert_int_to_char(edges));
     
-    al_draw_text(font_medium, COLOR_BLACK, tx+350, ty, 0, "WYBERZ");
-    al_draw_text(font_medium, COLOR_BLACK, tx+350, ty+50, 0, "START");
+    al_draw_text(font, COLOR_BLACK, tx+350, ty, 0, "WYBERZ");
+    al_draw_text(font, COLOR_BLACK, tx+350, ty+50, 0, "START");
     
     
-    al_draw_text(font_medium, COLOR_BLACK, tx+600, ty, 0, "PRĘDKOŚĆ");
-    al_draw_text(font_medium, COLOR_BLACK, tx+600, ty+50, 0, "PRZETWARZANIA");
+    al_draw_text(font, COLOR_BLACK, tx+600, ty, 0, "PRĘDKOŚĆ");
+    al_draw_text(font, COLOR_BLACK, tx+600, ty+50, 0, "PRZETWARZANIA");
     
+    
+    free(font);
+    free(font_big);
 }
