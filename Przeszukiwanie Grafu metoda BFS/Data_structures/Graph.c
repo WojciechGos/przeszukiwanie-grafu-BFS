@@ -95,24 +95,3 @@ void BFS(Graph * graph, int start, int vertices){
     }
 }
 
-Graph * generate_graph(int edges){
-
-    Graph * graph = create_graph(VERTICES);
-    
-    add_undirected_edge(graph, 0, 1);
-    add_undirected_edge(graph, 1, 2);
-    add_undirected_edge(graph, 1, 8);
-    add_undirected_edge(graph, 1, 7);
-    add_undirected_edge(graph, 2, 3);
-    add_undirected_edge(graph, 0, 8);
-    add_undirected_edge(graph, 9, 17);
-    add_undirected_edge(graph, 33, 34);
-    add_undirected_edge(graph, 27, 34);
-    add_undirected_edge(graph, 26, 32);
-    add_undirected_edge(graph, 5, 13);
-    add_undirected_edge(graph, 5, 6);
-    
-    
-    
-    return graph;
-}

@@ -6,8 +6,7 @@
 /// @return Zwraca wskaźnik na zaalokowaną komórkę pamięci
 /// @warning Nie ma potrzeby używać przy pojedynczych Listach, wtedy najlepiej użyć add()
 /// @see add(List * list, int data)
-List * createList()
-{
+List * createList(){
     List *list = (List*)(malloc(sizeof(List)));
     list->start = NULL;
     list->end = NULL;
@@ -54,12 +53,22 @@ void remove_element(List *list, int index)
         ptr = ptr->next;
         position++;
     }
-
+    
     if(index == 0 ){
+        if(list->start == list->end){
+            tmp = list->start;
+            free(tmp);
+            list->start = NULL;
+            list->end = NULL;
+            puts("list 1");
+            printf("start %p end %p\n", list->start, list->end);
+            return;
+        }
         if(list->start->next != NULL){
             tmp = ptr->next;
             free(list->start);
             list->start = tmp;
+            puts("list 2");
             return;
         }
         
@@ -67,6 +76,7 @@ void remove_element(List *list, int index)
             free(list->start);
             list->start = NULL;
             list->end = NULL;
+            puts("list 3");
             return;
         }
     }
@@ -76,6 +86,7 @@ void remove_element(List *list, int index)
             free(list->end);
             list->end = ptr;
             list->end->next = NULL;
+            puts("list 4");
             return;
 
         }
@@ -83,11 +94,13 @@ void remove_element(List *list, int index)
             tmp = ptr->next->next;
             free(ptr->next);
             ptr->next = tmp;
+            puts("list 5");
             return;
         }
 
 
     }
+    printf("????????????????????\n");
 }
 
 /// Funkcja ta sprawdza czy lista jest pusta
@@ -100,14 +113,19 @@ bool is_list_empty(List * list){
 ///
 /// @attention Po tej operacji dalej można używać listy
 void remove_list(List * list){
+    if(list->start == NULL || list->end == NULL)
+        return;
+        
     List_pointer * ptr = list->start, *next;
     list->start = NULL;
-    list->end = NULL;
+
     while(ptr != NULL){
         next = ptr->next;
         free(ptr);
         ptr = next;
     }
+//    free(list->end);
+    list->end = NULL;
 }
 
 /// Wyświetla zawartość podanej listy przez parametr

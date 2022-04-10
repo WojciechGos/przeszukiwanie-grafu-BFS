@@ -13,6 +13,5 @@ List *get_vertice(Graph *graph, int root);
 void add_undirected_edge(Graph *graph, int a, int b);
 void print_graph_adjacent_vertices(Graph *graph, int vertices);
 void BFS(Graph * graph, int start, int vertices);
-Graph * generate_graph(int edges);
 
 #endif

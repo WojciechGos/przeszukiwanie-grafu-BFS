@@ -20,8 +20,6 @@ typedef struct List_pointer{
 ///  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.c
 ///    List list = {NULL, NULL};
 ///  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-///
-/// @warning Istnieje również funkcja createList() której nie należy używać jeśli nie zależy ci na wielokrotnym alokowaniu pamięci (tak jak ma to miejsce przy tworzeniu listy sąsiedztwa grafu).
 typedef struct List
 {
     List_pointer *start, *end;

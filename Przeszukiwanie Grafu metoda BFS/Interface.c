@@ -6,7 +6,8 @@
 #include <stdlib.h>
 #include "Data_structures/Graph.h"
 #include "Data_structures/List.h"
-
+#include <time.h>
+#include <math.h>
 #define r 50 // promień okręgu
 
 #define COLOR_DARK_GRAY al_map_rgb(100, 100, 100)
@@ -32,7 +33,14 @@
 #define EDIT_EDGES 0
 #define EDIT_START 1
 #define EDIT_TEMPO 2
+#define PROGRAM_IS_RUNNING 3
 
+#define VERTICES 35
+
+#define LEFT_GROUP 16
+#define MIDDLE_GROUP 22
+#define DOWN_GROUP 1
+#define RIGHT_GROUP 13
 
 int get_real_position_on_board(int position){
     return 150+ position*200;
@@ -209,7 +217,7 @@ void draw_menu(int edges, int start, int tempo, int selected, ALLEGRO_FONT * fon
     int x1 = get_real_position_on_board(7);
     int y1 = 50;
     int x2 = get_real_position_on_board(11)+100;
-    int y2 = get_real_position_on_board(1);
+    int y2 = get_real_position_on_board(1)-100;
     
     
     al_draw_filled_rectangle(x1, y1, x2, y2, COLOR_RED);
@@ -217,13 +225,21 @@ void draw_menu(int edges, int start, int tempo, int selected, ALLEGRO_FONT * fon
 
     
     if(selected == EDIT_EDGES){
+        x2 = get_real_position_on_board(8)+50;
         
+        al_draw_filled_rectangle(x1, y1, x2, y2, COLOR_YELLOW);
     }
     else if(selected == EDIT_START){
+        x1 = get_real_position_on_board(8)+50;
+        x2 = get_real_position_on_board(10)-50;
         
+        al_draw_filled_rectangle(x1, y1, x2, y2, COLOR_YELLOW);
     }
     else if(selected == EDIT_TEMPO){
+        x1 = get_real_position_on_board(10) -50;
+        x2 = get_real_position_on_board(11) + 100;
         
+        al_draw_filled_rectangle(x1, y1, x2, y2, COLOR_YELLOW);
     }
     int tx = get_real_position_on_board(7);
     int ty = 60;
@@ -232,11 +248,250 @@ void draw_menu(int edges, int start, int tempo, int selected, ALLEGRO_FONT * fon
     al_draw_text(font_medium, COLOR_BLACK, tx, ty+50, 0, "KRAWĘDZI");
     al_draw_text(font_big, COLOR_BLACK, tx, ty+100, 0, convert_int_to_char(edges));
     
-    al_draw_text(font_medium, COLOR_BLACK, tx+350, ty, 0, "WYBERZ");
-    al_draw_text(font_medium, COLOR_BLACK, tx+350, ty+50, 0, "START");
+    tx += 350;
+    
+    al_draw_text(font_medium, COLOR_BLACK, tx, ty, 0, "WYBIERZ");
+    al_draw_text(font_medium, COLOR_BLACK, tx, ty+50, 0, "POCZĄTEK");
+    al_draw_text(font_big, COLOR_BLACK, tx, ty+100, 0, convert_int_to_char(start));
+    
+    tx += 250;
     
     
-    al_draw_text(font_medium, COLOR_BLACK, tx+600, ty, 0, "PRĘDKOŚĆ");
-    al_draw_text(font_medium, COLOR_BLACK, tx+600, ty+50, 0, "PRZETWARZANIA");
+    al_draw_text(font_medium, COLOR_BLACK, tx, ty, 0, "PRĘDKOŚĆ");
+    al_draw_text(font_medium, COLOR_BLACK, tx, ty+50, 0, "PRZETWARZANIA");
+    al_draw_text(font_big, COLOR_BLACK, tx, ty+100, 0, convert_int_to_char(tempo));
     
 }
+
+void handle_keyboard(ALLEGRO_EVENT events, int *amount_of_edges, int *start, int* tempo, int*select){
+    
+    if(*select == PROGRAM_IS_RUNNING)
+        return;
+    
+    if(events.type == ALLEGRO_EVENT_KEY_CHAR){
+        puts("in\n");
+        switch(events.keyboard.keycode){
+            case ALLEGRO_KEY_RIGHT:
+                puts("?");
+                if(*amount_of_edges < 102 && *select == EDIT_EDGES){
+                    *amount_of_edges += 1;
+                }
+                if(*start<34 && *select == EDIT_START){
+                    *start += 1;
+                }
+                if(*tempo <34 && *select == EDIT_TEMPO){
+                    *tempo += 1;
+                }
+                break;
+                
+                
+            case ALLEGRO_KEY_LEFT:
+                if(*amount_of_edges > 0 && *select == EDIT_EDGES){
+                    *amount_of_edges -= 1;
+                }
+                if(*start>0 && *select == EDIT_START){
+                    *start -= 1;
+                }
+                if(*tempo > 0 && *select == EDIT_TEMPO){
+                    *tempo -= 1;
+                }
+                break;
+                
+                
+            case ALLEGRO_KEY_ENTER:
+                if(*select < 3)
+                    *select += 1;
+                break;
+            case ALLEGRO_KEY_BACKSPACE:
+                if(*select > 0)
+                    *select -= 1;
+                break;
+        }
+    }
+}
+
+
+
+
+
+
+typedef struct Group{
+    int e, v;
+}Group;
+
+int identify_vertice(int vertice){
+    int x=-1, y=-1;
+    find_position_on_board(vertice, &x, &y);
+    
+
+    
+    int right = 1;
+    int left_down = 6;
+    int down = 7;
+    int right_down = 8;
+    
+    // nadawanie ograniczeń
+    if(x+1 == BOARD_SIZE_X){
+        right = 0;
+        right_down = 0;
+    }
+    if(y+1 == BOARD_SIZE_Y){
+        down = 0;
+        right_down = 0;
+        left_down = 0;
+    }
+    if(x == 0){
+        left_down = 0;
+    }
+
+    return right + right_down + down + left_down;
+}
+ 
+
+void rand_edges(Graph * graph, int root, int amount, List * edges){
+    int destination, index;
+    int size = list_size(&edges);
+   
+    
+    while(amount!=0 && size !=0){
+        
+        index = rand()%size;
+        destination = at(&edges, index);
+        print_list(&edges);
+        remove_element(&edges, index);
+        add_undirected_edge(graph, root, destination);
+        size = list_size(&edges);
+        
+        amount--;
+    }
+    
+    
+}
+
+/// wypełnia listy z których odbędą się losowania do których wierzchołków stowrzyć połączenie
+void fill_edges_group(List * edges, int group){
+    remove_list(edges);
+    if(group == MIDDLE_GROUP){
+        add(edges, 1);
+        add(edges, 6);
+        add(edges, 7);
+        add(edges, 8);
+    }
+    else if(group == LEFT_GROUP){
+        add(edges, 1);
+        add(edges, 7);
+        add(edges, 8);
+    }
+    else if(group == RIGHT_GROUP){
+        add(edges, 7);
+        add(edges, 6);
+    }
+    else if(group == DOWN_GROUP){
+        add(edges, 1);
+    }
+}
+
+int calculate_amount_of_edges_to_rand(int *amount_of_edges, int group, Group * left, Group* right, Group* down, Group* middle ){
+    printf("group address: %p\n", left);
+    printf("group address: %p\n", right);
+    printf("group address: %p\n", down);
+    printf("group address: %p\n", middle);
+    
+    Group * selected;
+    int sum_of_edges = 0;
+    if(group == MIDDLE_GROUP){
+        selected = middle;
+        sum_of_edges += left->e;
+        sum_of_edges += right->e;
+        sum_of_edges += down->e;
+    }
+    else if(group == LEFT_GROUP){
+        selected = left;
+        sum_of_edges += right->e;
+        sum_of_edges += middle->e;
+        sum_of_edges += down->e;
+    }
+    else if(group == RIGHT_GROUP){
+        selected = right;
+        sum_of_edges += left->e;
+        sum_of_edges += middle->e;
+        sum_of_edges += down->e;
+    }
+    else if(group == DOWN_GROUP){
+        selected = down;
+        sum_of_edges += left->e;
+        sum_of_edges += right->e;
+        sum_of_edges += middle->e;
+    }
+    float nominator = (float)(*amount_of_edges - sum_of_edges);
+    
+    float denominator = (float)(selected->v);
+    float amount = ceil(nominator/denominator);
+    selected->v -= 1;
+    *amount_of_edges -= amount;
+    return amount;
+}
+
+List * select_group_of_edges(int group, List * left, List * right, List * down, List * middle){
+    if(group == MIDDLE_GROUP){
+        return middle;
+    }
+    else if(group == LEFT_GROUP){
+        return left;
+    }
+    else if(group == RIGHT_GROUP){
+        return right;
+    }
+    else if(group == DOWN_GROUP){
+        return down;
+    }
+    return NULL;
+}
+
+void generate_edges(Graph * graph, int amount_of_edges){
+  
+    List vertices = {NULL, NULL};
+    List edges_group_middle = {NULL, NULL};
+    List edges_group_right = {NULL, NULL};
+    List edges_group_down = {NULL, NULL};
+    List edges_group_left = {NULL, NULL};
+    List * select_edge_group = {NULL, NULL};
+    
+    fill_edges_group(&edges_group_middle, MIDDLE_GROUP);
+    fill_edges_group(&edges_group_right, RIGHT_GROUP);
+    fill_edges_group(&edges_group_down, DOWN_GROUP);
+    fill_edges_group(&edges_group_left, LEFT_GROUP);
+    
+    Group left = {12, 4};
+    Group right = {4, 4};
+    Group middle = {80, 20};
+    Group down = {6,6};
+
+    srand(time(NULL));
+
+    // wypełnienie listy id wierzchołków
+    for(int i=0; i<VERTICES-1; ++i){
+        add(&vertices, i);
+    }
+
+    int vertice, index, size, group, amount;
+
+    for(int i=0; i<VERTICES-1; ++i){
+        
+        size = list_size(&vertices);
+        index = rand () % size;
+        vertice = at(&vertices, index);
+        printf("RAND VERTICE: %d\n", vertice);
+        remove_element(&vertices, index);
+        group = identify_vertice(vertice);
+        printf("Group: %d\n", group);
+        amount = calculate_amount_of_edges_to_rand(&amount_of_edges, group, &left, &right, &down, &middle);
+        select_edge_group = select_group_of_edges(group, &edges_group_left, &edges_group_right, &edges_group_down, &edges_group_middle);
+        
+        rand_edges(graph, vertice, amount, select_edge_group);
+        fill_edges_group(select_edge_group, group);
+        
+        
+    }
+}
+
