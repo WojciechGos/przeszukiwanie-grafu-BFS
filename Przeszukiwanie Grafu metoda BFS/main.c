@@ -33,6 +33,7 @@ int main(int argv, char **argc){
     al_install_keyboard();
     al_init_primitives_addon();
     
+
     ALLEGRO_FONT * font_small = al_load_font("CONSOLA.TTF", 32, 0);
     ALLEGRO_FONT * font_medium = al_load_font("CONSOLA.TTF", 40, 0);
     ALLEGRO_FONT * font_big = al_load_font("CONSOLA.TTF", 80, 0);
@@ -52,8 +53,10 @@ int main(int argv, char **argc){
     int phase = 1;
     
     
+
     draw_board(graph, font_small, &states, &fake_queue, phase);
     draw_menu(amount_of_cycles, start, tempo, EDIT_EDGES, font_medium, font_big);
+
     al_flip_display();
 
 
@@ -61,6 +64,7 @@ int main(int argv, char **argc){
     while(!done){
         ALLEGRO_EVENT events;
         al_wait_for_event(event_queue, &events);
+
 
         handle_keyboard(events, &amount_of_cycles, &start, &tempo, &select, &is_edges_blocked);
         if(select == EDIT_START && block_rand == false){
@@ -101,6 +105,7 @@ int main(int argv, char **argc){
         
         
         
+
         al_flip_display();
 
     }

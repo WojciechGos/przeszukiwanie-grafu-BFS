@@ -266,16 +266,19 @@ void draw_queue(List * fake_queue, ALLEGRO_FONT * font ){
 
 ///  rysuje plansze z podziałem na plansze: grafu, kolejki oraz kodu
 void draw_board(Graph * graph, ALLEGRO_FONT * font, List * states, List * fake_queue, int phase){
+
     al_clear_to_color(COLOR_LIGHT_GRAY);
     draw_graph_board(graph, font, states);
     draw_code_pointer(phase);
     draw_code_board(font);
+
     draw_queue(fake_queue,font);
 }
 
 
 /// rysuje menu wyboru
 void draw_menu(int edges, int start, int tempo, int selected, ALLEGRO_FONT * font_medium, ALLEGRO_FONT * font_big){
+
     
     
     int x1 = get_real_position_on_board(7);
@@ -308,6 +311,7 @@ void draw_menu(int edges, int start, int tempo, int selected, ALLEGRO_FONT * fon
     int tx = get_real_position_on_board(7);
     int ty = 60;
     
+
     al_draw_text(font_medium, COLOR_BLACK, tx, ty, 0, "ILOŚĆ");
     al_draw_text(font_medium, COLOR_BLACK, tx, ty+50, 0, "CYKLI");
     al_draw_text(font_big, COLOR_BLACK, tx, ty+100, 0, convert_int_to_char(edges));
@@ -622,6 +626,4 @@ void BFS_phase(Graph * graph, int *phase, List * state, List * fake_queue, int s
     else{
         *phase += 1;
     }
-        
-    
 }
