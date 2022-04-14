@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wtep_5fteoretyczny_2emd_0',['wtep_teoretyczny.md',['../wtep__teoretyczny_8md.html',1,'']]]
+  ['main_2ec_0',['main.c',['../main_8c.html',1,'']]]
 ];

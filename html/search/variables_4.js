@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['start_0',['start',['../struct_list.html#aea9c6c72b0cb9aa18af5cf838a90cf24',1,'List']]]
+  ['next_0',['next',['../struct_list__pointer.html#a9bc29506edb63bd8353109c1649c8425',1,'List_pointer::next()'],['../struct_queue__node.html#a6d2e406d8e89755c177db611c71e8ae3',1,'Queue_node::next()']]]
 ];

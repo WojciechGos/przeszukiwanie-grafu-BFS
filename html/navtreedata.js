@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Przeszukiwanie grafu metodą BFS", "index.html", [
-    [ "wstęp teoreyczny", "md_doc_pages_wtep_teoretyczny.html", null ],
+    [ "wstęp teoreyczny", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Fields", "functions.html", [
@@ -38,7 +38,9 @@ var NAVTREE =
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Typedefs", "globals_type.html", null ]
+        [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]

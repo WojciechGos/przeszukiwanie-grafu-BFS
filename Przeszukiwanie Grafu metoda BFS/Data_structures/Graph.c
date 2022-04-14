@@ -66,7 +66,7 @@ void fill_list(List * list, int vertices){
 void BFS(Graph * graph, int start, int vertices){
     ///lista ta przetrzymuje informacje czy dany wierzchołek został odwiedzony czy nie
     List visited = {NULL, NULL}, *currentProcesedList = NULL;
-    int size = 0, vertice = -1;
+    int size = 0, vertice = -1, front;
     Queue queue = {NULL, NULL};
     
     fill_list(&visited, vertices);
@@ -75,17 +75,15 @@ void BFS(Graph * graph, int start, int vertices){
     push(&queue, start);
 
     while(!is_queue_empty(&queue)){
-        
-        currentProcesedList = get_vertice(graph, get_front_element(&queue));
+        front =  get_front_element(&queue);
+        currentProcesedList = get_vertice(graph, front);
         pop(&queue);
-//        puts("visited");
-//        print_list(&visited);
         
         size = list_size(currentProcesedList);
         
         for(int i=0; i<size; ++i){
             vertice = at(currentProcesedList, i);
-//            printf("vertice: in for: %d\n", vertice);
+            printf("vertice: %d for: %d\n", front, vertice);
 
             if(at(&visited, vertice) == 0){
                 set_value_at(&visited, vertice, 1);

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['viewcontroller_2eh_0',['ViewController.h',['../_view_controller_8h.html',1,'']]],
-  ['viewcontroller_2em_1',['ViewController.m',['../_view_controller_8m.html',1,'']]]
+  ['wtep_5fteoretyczny_2emd_0',['wtep_teoretyczny.md',['../wtep__teoretyczny_8md.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Przeszukiwanie grafu metodą BFS: Przeszukiwanie Grafu metoda BFS/main.c File Reference</title>
+<title>Przeszukiwanie grafu metodą BFS: main.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,25 +92,70 @@ $(document).ready(function(){initNavTree('main_8c.html',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">main.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
-<code>#include &lt;allegro5/allegro.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;allegro5/allegro.h&gt;</code><br />
 <code>#include &lt;allegro5/allegro_primitives.h&gt;</code><br />
 <code>#include &lt;allegro5/allegro_font.h&gt;</code><br />
 <code>#include &lt;allegro5/allegro_ttf.h&gt;</code><br />
 <code>#include &lt;allegro5/allegro_native_dialog.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_list_8h_source.html">Data_structures/List.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_queue_8h_source.html">Data_structures/Queue.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_graph_8h_source.html">Data_structures/Graph.h</a>&quot;</code><br />
+<code>#include &quot;Graph_generator.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_interface_8h_source.html">Interface.h</a>&quot;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
 </div>
 <p><a href="main_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a76da26d519b3a4158847daa8783a7a5b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a76da26d519b3a4158847daa8783a7a5b">screenWidth</a>&#160;&#160;&#160;2500</td></tr>
+<tr class="separator:a76da26d519b3a4158847daa8783a7a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c472bd07ea66dbb884992785271e1d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8c472bd07ea66dbb884992785271e1d1">screenHeight</a>&#160;&#160;&#160;1350</td></tr>
+<tr class="separator:a8c472bd07ea66dbb884992785271e1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1c03069360f1f90a556eb537e0ff8a72"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1c03069360f1f90a556eb537e0ff8a72">main</a> (int argv, char **argc)</td></tr>
 <tr class="separator:a1c03069360f1f90a556eb537e0ff8a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a8c472bd07ea66dbb884992785271e1d1" name="a8c472bd07ea66dbb884992785271e1d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c472bd07ea66dbb884992785271e1d1">&#9670;&nbsp;</a></span>screenHeight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define screenHeight&#160;&#160;&#160;1350</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00015">15</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+<a id="a76da26d519b3a4158847daa8783a7a5b" name="a76da26d519b3a4158847daa8783a7a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76da26d519b3a4158847daa8783a7a5b">&#9670;&nbsp;</a></span>screenWidth</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define screenWidth&#160;&#160;&#160;2500</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00014">14</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a1c03069360f1f90a556eb537e0ff8a72" name="a1c03069360f1f90a556eb537e0ff8a72"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c03069360f1f90a556eb537e0ff8a72">&#9670;&nbsp;</a></span>main()</h2>
@@ -138,7 +183,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00016">16</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00018">18</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>
@@ -147,7 +192,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_e1aedd4c7036fe7b6e1a48fdb68e8e09.html">Przeszukiwanie Grafu metoda BFS</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
+    <li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['get_5fvertice_0',['get_vertice',['../_graph_8c.html#a5e31ad18af146404bdbba344c9ee185c',1,'get_vertice(Graph *graph, int root):&#160;Graph.c'],['../_graph_8h.html#a5e31ad18af146404bdbba344c9ee185c',1,'get_vertice(Graph *graph, int root):&#160;Graph.c']]],
-  ['graph_1',['Graph',['../struct_graph.html',1,'Graph'],['../_graph_8h.html#a0c94bbeb31bba748d2897a168f62e9bc',1,'Graph():&#160;Graph.h']]],
-  ['graph_2ec_2',['Graph.c',['../_graph_8c.html',1,'']]],
-  ['graph_2eh_3',['Graph.h',['../_graph_8h.html',1,'']]]
+  ['edit_5fedges_0',['EDIT_EDGES',['../_interface_8h.html#a8befb25a39abe1ceca358c7c8cedc01e',1,'Interface.h']]],
+  ['edit_5fstart_1',['EDIT_START',['../_interface_8h.html#a3fef9521acd73648a9a300ec25238ed0',1,'Interface.h']]],
+  ['edit_5ftempo_2',['EDIT_TEMPO',['../_interface_8h.html#ac544d00ba81b7b5a5fd33f6ec38c2f50',1,'Interface.h']]],
+  ['end_3',['end',['../struct_list.html#ac617fda6bf6c3c420f491d56dcd03d39',1,'List']]]
 ];

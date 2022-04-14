@@ -10,7 +10,6 @@ List * createList(){
     List *list = (List*)(malloc(sizeof(List)));
     list->start = NULL;
     list->end = NULL;
-    // List_pointer *new_node = (List_pointer *)(malloc(sizeof(List_pointer)));
     return list;
 }
 
@@ -60,15 +59,15 @@ void remove_element(List *list, int index)
             free(tmp);
             list->start = NULL;
             list->end = NULL;
-            puts("list 1");
-            printf("start %p end %p\n", list->start, list->end);
+            
+            
             return;
         }
         if(list->start->next != NULL){
             tmp = ptr->next;
             free(list->start);
             list->start = tmp;
-            puts("list 2");
+            
             return;
         }
         
@@ -76,7 +75,7 @@ void remove_element(List *list, int index)
             free(list->start);
             list->start = NULL;
             list->end = NULL;
-            puts("list 3");
+            
             return;
         }
     }
@@ -86,7 +85,7 @@ void remove_element(List *list, int index)
             free(list->end);
             list->end = ptr;
             list->end->next = NULL;
-            puts("list 4");
+            
             return;
 
         }
@@ -94,13 +93,13 @@ void remove_element(List *list, int index)
             tmp = ptr->next->next;
             free(ptr->next);
             ptr->next = tmp;
-            puts("list 5");
+            
             return;
         }
 
 
     }
-    printf("????????????????????\n");
+    
 }
 
 /// Funkcja ta sprawdza czy lista jest pusta

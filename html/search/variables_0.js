@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['data_0',['data',['../struct_list__pointer.html#a9eab91667db4d35c7231dcddf7b89a76',1,'List_pointer::data()'],['../struct_queue__node.html#a9eab91667db4d35c7231dcddf7b89a76',1,'Queue_node::data()']]]
+  ['condition_0',['condition',['../_interface_8c.html#aa01a2837d1549bf695813f441b38a849',1,'Interface.c']]],
+  ['current_5fprocessing_5flist_1',['current_processing_list',['../_interface_8c.html#a01657b1beac660305132989d5959efc2',1,'Interface.c']]]
 ];
