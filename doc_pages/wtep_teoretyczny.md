@@ -32,6 +32,8 @@ Lista ta przechowuje informacje o połączeniach z kolejnymi wierzchołkami.
 
 W naszym wypadku najpierw stworzyliśmy liste wskaźników, które przechowywują wskaźnik na liste sąsiedztwa.
 
+## Program
+
 ### siatka
 
 Aby ułatwić sobie umieszczanie elementów na plaszy, powstała funkcja 
