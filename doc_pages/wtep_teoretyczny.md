@@ -46,23 +46,22 @@ get_real_position_on_board(int position)
 ### założenia:
 - wszystkie krawędzię będą dwukierunkowe tzn. że jeśli istnieje krawędź z wierzchołka a do b to również istnieje krawędź z wierzchołka b do a.
 - krawędź może zostać wygenerowane między najbliższymi sąsiadami wierzchołka
+- losowanie krawędzi zaczynamy po kolei od pierwszego wierzchołka
 
-### obserwacja
-
+### obserwacja 1
+Skoro wszystkie krawędzie są dwukierunkowe oraz mają być generowane między najbliższym sąsiadem to istnieją maksymalnie 4 krawędzie warte rozpatrzenia.
+Jeżeli za id wylosowanego wierzchołka uznamy x to jego najbliżsi sąsiedzi mają id odpowiednio x+1, x+6, x+7. x+8. 
 ![obserwacja](obserwacja.png)
 
+### obserwacja 2
 
+Nie wszystkie wierzchołki mogą mieć 4 krawędzie do wylosowanie, aby zatem zydentyfikować je, należy zsumować jego najbliższych sąsiadów.
 
+![grupy wierzchołków](grupy_wierzcholkow.png)
 
-
-
-
-
-
-
-
-
-
-
-
+Z tego wynika że suma id wierzchołków grupy:
+- lewa wynosi 16
+- środkowej wynosi 22
+- prawej wynosi prawej wynosi 13
+- dolnej wynosi 1
 
