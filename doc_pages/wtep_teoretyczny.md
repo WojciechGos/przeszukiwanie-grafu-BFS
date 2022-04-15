@@ -53,6 +53,7 @@ plansza posiada margines 150px oraz każdy punkt jed oddalony od siebie o 200px
 ### obserwacja 1
 Skoro wszystkie krawędzie są dwukierunkowe oraz mają być generowane między najbliższym sąsiadem to istnieją maksymalnie 4 krawędzie warte rozpatrzenia.
 Jeżeli za id wylosowanego wierzchołka uznamy x to jego najbliżsi sąsiedzi mają id odpowiednio x+1, x+6, x+7. x+8. 
+
 ![obserwacja](obserwacja.png)
 
 ### obserwacja 2
