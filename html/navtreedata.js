@@ -25,7 +25,12 @@
 var NAVTREE =
 [
   [ "Przeszukiwanie grafu metodą BFS", "index.html", [
-    [ "wstęp teoreyczny", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html", null ],
+    [ "Wstęp Teoretyczny", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html", [
+      [ "Czym jest graf?", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md6", [
+        [ "Wierzchołki i Krawędzie", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md7", null ]
+      ] ],
+      [ "Przeszukiwanie grafu wszerz (BFS)", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md8", null ]
+    ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Fields", "functions.html", [
