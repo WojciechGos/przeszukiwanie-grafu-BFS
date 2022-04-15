@@ -100,13 +100,54 @@ Czym jest graf?</h1>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Wierzchołki i Krawędzie</h2>
 <p >Wierzchołki grafu mogą być ponumerowane lub nazwane i czasem stanowia reprezentacje jakichś obiektów. Krawędzie natomiast reprezentują relacje między takimi obiektami np.</p>
-<p ><img src="graf.png" alt="graf" class="inline"/> <img src="image.png" alt="image" class="inline"/></p>
+<p ><img src="graf.png" alt="graf" class="inline"/></p>
 <p >Jak widać Wierzchołki reprezentują miasta, natomiast krawędzie drogi między nimi.</p>
 <h1><a class="anchor" id="autotoc_md8"></a>
 Przeszukiwanie grafu wszerz (BFS)</h1>
 <p >Algorytm BFS(ang. breadth-first search) odpowiada na dwa pytania:</p><ul>
 <li>czy istnieje droga z wierzchołka A do B</li>
-<li>jaka jest najkrótsza droga z wierzchołka A do B </li>
+<li>jaka jest najkrótsza droga z wierzchołka A do B</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Reprezentacja grafu w pamięci</h2>
+<p >graf w naszym programie jest reprezentowany za pomocą listy sąsiedztwa. Lista ta przechowuje informacje o połączeniach z kolejnymi wierzchołkami.</p>
+<p ><img src="reprezentacja.png" alt="reprezentacja_grafu" class="inline"/></p>
+<p >W naszym wypadku najpierw stworzyliśmy liste wskaźników, które przechowywują wskaźnik na liste sąsiedztwa.</p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Program</h1>
+<h3><a class="anchor" id="autotoc_md11"></a>
+siatka</h3>
+<p >Aby ułatwić sobie umieszczanie elementów na plaszy, powstała funkcja <a class="el" href="_interface_8c.html#ab8dba39933d2fdd1ead063c82a7805ba">get_real_position_on_board(int position)</a> plansza posiada margines 150px oraz każdy punkt jed oddalony od siebie o 200px</p>
+<p ><img src="siatka.png" alt="siatka" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Generowanie krawędzi grafu</h2>
+<h3><a class="anchor" id="autotoc_md13"></a>
+założenia:</h3>
+<ul>
+<li>wszystkie krawędzię będą dwukierunkowe tzn. że jeśli istnieje krawędź z wierzchołka a do b to również istnieje krawędź z wierzchołka b do a.</li>
+<li>krawędź może zostać wygenerowane między najbliższymi sąsiadami wierzchołka</li>
+<li>losowanie krawędzi zaczynamy po kolei od pierwszego wierzchołka</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md14"></a>
+obserwacja 1</h3>
+<p >Skoro wszystkie krawędzie są dwukierunkowe oraz mają być generowane między najbliższym sąsiadem to istnieją maksymalnie 4 krawędzie warte rozpatrzenia. Jeżeli za id wylosowanego wierzchołka uznamy x to jego najbliżsi sąsiedzi mają id odpowiednio x+1, x+6, x+7. x+8.</p>
+<p ><img src="obserwacja.png" alt="obserwacja" class="inline"/></p>
+<h3><a class="anchor" id="autotoc_md15"></a>
+obserwacja 2</h3>
+<p >Nie wszystkie wierzchołki mogą mieć 4 krawędzie do wylosowanie, aby zatem zydentyfikować je, należy zsumować jego najbliższych sąsiadów.</p>
+<p ><img src="grupy_wierzcholkow.png" alt="grupy wierzchołków" class="inline"/></p>
+<p >Z tego wynika że suma id wierzchołków grupy:</p><ul>
+<li>lewa wynosi 16</li>
+<li>środkowej wynosi 22</li>
+<li>prawej wynosi prawej wynosi 13</li>
+<li>dolnej wynosi 1</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md16"></a>
+Losowanie</h3>
+<p >Losowanie polega na:</p><ul>
+<li>wylosowaniu wierzchołka</li>
+<li>identyfikacji do jakiej grupy należy</li>
+<li>na podstawie grupy pobrać liste, w której znajdują się id wierzchołków </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

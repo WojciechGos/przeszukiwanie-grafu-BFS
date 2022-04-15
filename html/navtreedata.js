@@ -29,7 +29,18 @@ var NAVTREE =
       [ "Czym jest graf?", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md6", [
         [ "Wierzchołki i Krawędzie", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md7", null ]
       ] ],
-      [ "Przeszukiwanie grafu wszerz (BFS)", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md8", null ]
+      [ "Przeszukiwanie grafu wszerz (BFS)", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md8", [
+        [ "Reprezentacja grafu w pamięci", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md9", null ]
+      ] ],
+      [ "Program", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md10", [
+        [ "Generowanie krawędzi grafu", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md12", [
+          [ "siatka", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md11", null ],
+          [ "założenia:", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md13", null ],
+          [ "obserwacja 1", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md14", null ],
+          [ "obserwacja 2", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md15", null ],
+          [ "Losowanie", "md___users_wojtek__desktop_c_projects__przeszukiwanie__grafu_metoda__b_f_s_doc_pages_wtep_teoretyczny.html#autotoc_md16", null ]
+        ] ]
+      ] ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
