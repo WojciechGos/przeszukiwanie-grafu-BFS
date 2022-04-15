@@ -32,13 +32,13 @@ Lista ta przechowuje informacje o połączeniach z kolejnymi wierzchołkami.
 
 W naszym wypadku najpierw stworzyliśmy liste wskaźników, które przechowywują wskaźnik na liste sąsiedztwa.
 
-## Program
+# Program
 
 ### siatka
 
 Aby ułatwić sobie umieszczanie elementów na plaszy, powstała funkcja 
 get_real_position_on_board(int position)
-
+plansza posiada margines 150px oraz każdy punkt jed oddalony od siebie o 200px
 
 ![siatka](siatka.png)
 
@@ -67,3 +67,9 @@ Z tego wynika że suma id wierzchołków grupy:
 - prawej wynosi prawej wynosi 13
 - dolnej wynosi 1
 
+### Losowanie
+
+Losowanie polega na: 
+ - wylosowaniu wierzchołka
+ - identyfikacji do jakiej grupy należy
+ - na podstawie grupy pobrać liste, w której znajdują się id wierzchołków 
