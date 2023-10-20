@@ -3,9 +3,7 @@
 ![ezgif com-video-to-gif (1)](https://github.com/WojciechGos/przeszukiwanie-grafu-BFS/assets/36795978/154c1b4e-9b2c-4fb1-bd65-a8755d842aa7)
 
 The board in the middle shows the graph
-
 At the bottom in the yellow squares is the queue of the BFS algorithm
-
 On the right is the code, which represents the currently executed line of code of the BFS algorithm.
 
 
