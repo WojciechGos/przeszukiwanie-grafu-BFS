@@ -2,6 +2,11 @@
 
 ![ezgif com-video-to-gif (1)](https://github.com/WojciechGos/przeszukiwanie-grafu-BFS/assets/36795978/154c1b4e-9b2c-4fb1-bd65-a8755d842aa7)
 
+Plansza na środku przedstawia graf
+Na dole w żółtych kwadratach znajduje się kolejka algorytmu BFS
+Po prawej znajduję się kod, który przedstawia aktualnie wykonywaną linijkę kodu algorytmu BFS.
+
+
 # Wstęp Teoretyczny
 
 ## Czym jest graf?
