@@ -20,7 +20,9 @@ It consists of vertices and edges.
 The vertices of a graph can be numbered or named and sometimes represent some objects.
 Edges, on the other hand, represent relationships between such objects, e.g.
 
-![graph](graph.png)
+
+![graf](https://github.com/WojciechGos/przeszukiwanie-grafu-BFS/assets/36795978/7a8ced37-3edf-494e-a573-ddd0fa678bed)
+
 
 
 As you can see, the vertices represent the cities, while the edges represent the roads between them.
@@ -36,7 +38,7 @@ The BFS(breadth-first search) algorithm answers two questions:
 The graph in our program is represented using a neighborhood list.
 This list stores information about connections to consecutive vertices.
 
-![representation_graph](representation.png)
+![reprezentacja](https://github.com/WojciechGos/przeszukiwanie-grafu-BFS/assets/36795978/ed4c495a-6e01-47d7-a5dd-62e5d6fde15e)
 
 In our case, we first created a pointer list that stores a pointer to the neighborhood list.
 
@@ -51,7 +53,8 @@ To make it easier to place elements on the platter, a function was created
 get_real_position_on_board(int position)The board has a margin of 150px and each point jed 200px away from each other
 
 
-![grid](grid.png)
+![siatka](https://github.com/WojciechGos/przeszukiwanie-grafu-BFS/assets/36795978/406a2d11-25a0-434e-a857-9b906226ca14)
+
 
 
 
@@ -69,7 +72,7 @@ Since all edges are bidirectional and are to be generated between nearest neighb
 If we take x as the id of the drawn vertex then its nearest neighbors have id of x+1, x+6, x+7. x+8 respectively. 
 
 
-![observation](observation.png)  
+![obserwacja](https://github.com/WojciechGos/przeszukiwanie-grafu-BFS/assets/36795978/083f29ab-fb84-4ff3-a89e-3f3812e85a94)
   
 ### observation 2
 
@@ -77,7 +80,7 @@ If we take x as the id of the drawn vertex then its nearest neighbors have id of
 Not all vertices can have 4 edges to draw, so in order to zdentify it, its nearest neighbors must be summed.
 
 
-![vertex groups](groups_vertices.png)
+![grupy_wierzcholkow](https://github.com/WojciechGos/przeszukiwanie-grafu-BFS/assets/36795978/125b0dd7-0090-49ed-aca2-e2b77ebc54e1)
 
 
 From this it follows that the sum of the id of the vertices of group:
