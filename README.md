@@ -1,3 +1,8 @@
+# Działanie 
+
+![ezgif com-video-to-gif](https://github.com/WojciechGos/przeszukiwanie-grafu-BFS/assets/36795978/0e8c0abd-4624-4e20-84ad-80d25d2cdda9)
+
+
 
 # Wstęp Teoretyczny
 
