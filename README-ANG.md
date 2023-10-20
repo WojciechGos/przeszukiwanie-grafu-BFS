@@ -69,7 +69,9 @@ Since all edges are bidirectional and are to be generated between nearest neighb
 If we take x as the id of the drawn vertex then its nearest neighbors have id of x+1, x+6, x+7. x+8 respectively. 
 
 
-![observation](observation.png)### observation 2
+![observation](observation.png)  
+  
+### observation 2
 
 
 Not all vertices can have 4 edges to draw, so in order to zdentify it, its nearest neighbors must be summed.
