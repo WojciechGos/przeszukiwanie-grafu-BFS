@@ -6,6 +6,10 @@ The board in the middle shows the graph.
 At the bottom in the yellow squares is the queue of the BFS algorithm.  
 On the right is the code, which represents the currently executed line of code of the BFS algorithm.  
 
+###  Color meaning
+- Red circle indicates the vertex currently being processed.
+- Yellow circle indicates a vertex added to queue.
+- Black circle indicates a processed vertex.
 
 # Theoretical Introduction
 
